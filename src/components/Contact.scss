@@ -1,6 +1,50 @@
 .Contact {
-  height: 10rem;
+  height: 8rem;
   width: 30rem;
   background-color: lightgray;
   border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .imge {
+    padding: 0.5rem;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    .details__contact {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+
+      .leftDetails,
+      .rightDetails {
+        display: flex;
+        flex-direction: column;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+    }
+    width: 70%;
+  }
+}
+
+.image {
+  width: 25%;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.btn {
+  width: 5%;
+}
+
+.detailText {
+  color: red;
 }
