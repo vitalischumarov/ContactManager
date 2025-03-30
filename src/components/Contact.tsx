@@ -4,8 +4,8 @@ import "./Contact.scss";
 export default function Contact() {
   return (
     <>
-      <Link to={"/editView"} className="link">
-        <div className="Contact">
+      <div className="Contact">
+        <Link to={"/editView"} className="link">
           <div className="imge">image</div>
           <div className="details">
             <div className="details__name">
@@ -24,9 +24,9 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          <div className="btn">+</div>
-        </div>
-      </Link>
+        </Link>
+        <div className="btn">X</div>
+      </div>
     </>
   );
 }

@@ -1,6 +1,6 @@
 .Navbar {
   width: 20rem;
-  background-color: gray;
+  background-color: rgb(229 229 229);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,5 +15,9 @@
     width: 90%;
     border-radius: 5px;
     text-align: center;
+  }
+
+  .link:hover {
+    background-color: rgb(208 208 208);
   }
 }
