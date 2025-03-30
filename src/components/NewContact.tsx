@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./NewContact.scss";
+import { saveToLocalStorage } from "../Storages/localStorage";
 
-interface PersonData {
+export interface PersonData {
   username: string;
   geburtsdatum: string;
   geschlecht: string;
@@ -15,7 +16,7 @@ export default function NewContact() {
   const [person, setPerson] = useState<PersonData>({
     username: "",
     geburtsdatum: "",
-    geschlecht: "",
+    geschlecht: "männlich",
     email: "",
     post: "",
     phone: "",
@@ -25,7 +26,6 @@ export default function NewContact() {
   function handleChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) {
-    console.log(`Eingabefeld: ${event.target.value}`);
     switch (event.target.name) {
       case "username": {
         setPerson({ ...person, ...{ username: event.target.value } });
@@ -54,15 +54,41 @@ export default function NewContact() {
         break;
       }
       case "geburtsdatum": {
-        setPerson({ ...person, ...{ geburtsdatum: event.target.value } });
+        setPerson({
+          ...person,
+          ...{ geburtsdatum: String(event.target.value) },
+        });
 
         break;
       }
     }
   }
 
+  function noMissingEntries() {
+    if (
+      person.username === "" ||
+      person.geburtsdatum === "" ||
+      person.geschlecht === "" ||
+      person.email === "" ||
+      person.post === "" ||
+      person.phone === "" ||
+      person.webseite === ""
+    ) {
+      console.log("Eingaben fehlen");
+      console.log(person);
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   function createNewContact() {
-    console.log(person);
+    if (noMissingEntries()) {
+      console.log("alle daten vollzaehlig...");
+      saveToLocalStorage(person);
+    } else {
+      console.log("error");
+    }
   }
 
   return (
@@ -78,7 +104,7 @@ export default function NewContact() {
         <label>Geburtsdatum</label>
         <input
           type="date"
-          name="date"
+          name="geburtsdatum"
           id=""
           className="input"
           onChange={handleChange}
