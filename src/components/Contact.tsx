@@ -13,14 +13,14 @@ export default function Contact() {
             </div>
             <div className="details__contact">
               <div className="leftDetails">
-                <span>01.03.1988</span>
-                <span>Male</span>
-                <span>test@gmail.com</span>
+                <span className="detailText">01.03.1988</span>
+                <span className="detailText">Male</span>
+                <span className="detailText">test@gmail.com</span>
               </div>
               <div className="rightDetails">
-                <span>Musterstrasse 12</span>
-                <span>123456789</span>
-                <span>vitali-schumarov.ch</span>
+                <span className="detailText">Musterstrasse 12</span>
+                <span className="detailText">123456789</span>
+                <span className="detailText">vitali-schumarov.ch</span>
               </div>
             </div>
           </div>
