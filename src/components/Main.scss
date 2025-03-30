@@ -1,0 +1,15 @@
+.MainView {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+}
+
+.Navbar {
+  width: 20rem;
+  background-color: gray;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
