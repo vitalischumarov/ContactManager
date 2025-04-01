@@ -10,6 +10,7 @@ export interface PersonData {
   post: string;
   phone: string;
   webseite: string;
+  id: number;
 }
 
 export default function NewContact() {
@@ -21,7 +22,12 @@ export default function NewContact() {
     post: "",
     phone: "",
     webseite: "",
+    id: Math.random(),
   });
+
+  function generateID() {
+    return;
+  }
 
   function handleChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -75,7 +81,6 @@ export default function NewContact() {
       person.webseite === ""
     ) {
       console.log("Eingaben fehlen");
-      console.log(person);
       return false;
     } else {
       return true;
@@ -84,7 +89,6 @@ export default function NewContact() {
 
   function createNewContact() {
     if (noMissingEntries()) {
-      console.log("alle daten vollzaehlig...");
       saveToLocalStorage(person);
     } else {
       console.log("error");

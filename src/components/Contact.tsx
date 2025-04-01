@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Contact.scss";
+import { PersonData } from "./NewContact";
 
-export default function Contact() {
+interface ContactDataProps {
+  contactData: PersonData;
+}
+
+export default function Contact<PersonData>({ contactData }: ContactDataProps) {
   return (
     <>
       <div className="Contact">
@@ -9,18 +14,18 @@ export default function Contact() {
           <div className="imge">image</div>
           <div className="details">
             <div className="details__name">
-              <h3>Vitali</h3>
+              <h3>{contactData.username}</h3>
             </div>
             <div className="details__contact">
               <div className="leftDetails">
-                <span className="detailText">01.03.1988</span>
-                <span className="detailText">Male</span>
-                <span className="detailText">test@gmail.com</span>
+                <span className="detailText">{contactData.geburtsdatum}</span>
+                <span className="detailText">{contactData.geschlecht}</span>
+                <span className="detailText">{contactData.email}</span>
               </div>
               <div className="rightDetails">
-                <span className="detailText">Musterstrasse 12</span>
-                <span className="detailText">123456789</span>
-                <span className="detailText">vitali-schumarov.ch</span>
+                <span className="detailText">{contactData.post}</span>
+                <span className="detailText">{contactData.phone}</span>
+                <span className="detailText">{contactData.webseite}</span>
               </div>
             </div>
           </div>
