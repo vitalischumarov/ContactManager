@@ -25,10 +25,6 @@ export default function NewContact() {
     id: Math.random(),
   });
 
-  function generateID() {
-    return;
-  }
-
   function handleChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) {
@@ -90,9 +86,25 @@ export default function NewContact() {
   function createNewContact() {
     if (noMissingEntries()) {
       saveToLocalStorage(person);
+      clearInputs();
     } else {
       console.log("error");
     }
+  }
+
+  function clearInputs() {
+    setPerson({
+      ...person,
+      ...{
+        username: "",
+        geburtsdatum: "",
+        geschlecht: "männlich",
+        email: "",
+        post: "",
+        phone: "",
+        webseite: "",
+      },
+    });
   }
 
   return (
@@ -104,6 +116,7 @@ export default function NewContact() {
           name="username"
           className="input"
           onChange={handleChange}
+          value={person.username}
         />
         <label>Geburtsdatum</label>
         <input
@@ -112,6 +125,7 @@ export default function NewContact() {
           id=""
           className="input"
           onChange={handleChange}
+          value={person.geburtsdatum}
         />
         <label htmlFor={"geschlecht"}>Geschlecht:</label>
         <select name="geschlecht" id="geschlecht" onChange={handleChange}>
@@ -124,6 +138,7 @@ export default function NewContact() {
           name="email"
           className="input"
           onChange={handleChange}
+          value={person.email}
         />
         <label>Post Adresse</label>
         <input
@@ -131,6 +146,7 @@ export default function NewContact() {
           name="post"
           className="input"
           onChange={handleChange}
+          value={person.post}
         />
         <label>Telefonnummer</label>
         <input
@@ -138,6 +154,7 @@ export default function NewContact() {
           name="phone"
           className="input"
           onChange={handleChange}
+          value={person.phone}
         />
         <label>Webseite</label>
         <input
@@ -145,6 +162,7 @@ export default function NewContact() {
           name="webseite"
           className="input"
           onChange={handleChange}
+          value={person.webseite}
         />
         <br />
       </form>
