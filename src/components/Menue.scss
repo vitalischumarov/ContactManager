@@ -3,7 +3,11 @@
   height: 100%;
   background-color: rgb(135 135 135);
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    gap: 0.5rem;
+  }
 }

@@ -4,8 +4,10 @@ import "./Menue.scss";
 function Menue() {
   return (
     <div className="menue">
-      <Link to={"/newContact"}>newContact</Link>
-      <Link to={"/Contacts"}>All Contacts</Link>
+      <div className="links">
+        <Link to={"/newContact"}>newContact</Link>
+        <Link to={"/Contacts"}>All Contacts</Link>
+      </div>
     </div>
   );
 }

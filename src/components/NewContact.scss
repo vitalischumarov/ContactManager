@@ -1,0 +1,17 @@
+.formular {
+  margin-left: 2rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  .saveBtn {
+    width: 5rem;
+  }
+}
+
+.input-field {
+  height: 2rem;
+  width: 15rem;
+  margin-bottom: 1rem;
+  margin-top: 0.3rem;
+}
