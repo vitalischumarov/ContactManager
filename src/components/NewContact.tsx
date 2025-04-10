@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "./NewContact.scss";
 import { iPerson } from "../Model/Contact";
+import { PersonContext } from "../App";
 
 function NewContact() {
   let newPerson: iPerson = {
@@ -15,6 +17,8 @@ function NewContact() {
   };
 
   const [input, setInput] = useState(newPerson);
+  const context = useContext(PersonContext);
+  const navigate = useNavigate();
 
   function clickHandler(event: React.ChangeEvent<HTMLInputElement>) {
     console.log(event.target.name);
@@ -51,7 +55,11 @@ function NewContact() {
   }
 
   function saveContact() {
-    console.log("hello");
+    context?.dispatch({
+      type: "ADD",
+      payload: input,
+    });
+    navigate("/Contacts");
   }
 
   return (
