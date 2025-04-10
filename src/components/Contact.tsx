@@ -1,20 +1,25 @@
+import { iPerson } from "../Model/Contact";
 import "./Contact.scss";
 
-function Contact() {
+interface Prop {
+  prop: iPerson;
+}
+
+function Contact({ prop }: Prop) {
   return (
     <div className="contact-card">
       <div className="image">image</div>
       <div className="detail">
         <div className="details-left">
-          <h4>Vitali</h4>
-          <span>01.03.1988</span>
-          <span>männlich</span>
-          <span>v.schumarov@icloud.com</span>
+          <h4>{prop.vorname}</h4>
+          <span>{prop.geburtstag}</span>
+          <span>{prop.geschlecht}</span>
+          <span>{prop.email}</span>
         </div>
         <div className="details-right">
-          <span>Heitligstrasse 27</span>
-          <span>12345678</span>
-          <span>vitali-schumarov.ch</span>
+          <span>{prop.strasse}</span>
+          <span>{prop.telefon}</span>
+          <span>{prop.webseite}</span>
         </div>
       </div>
       <div className="delete-btn">x</div>
