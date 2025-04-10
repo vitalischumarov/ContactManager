@@ -31,10 +31,6 @@ function NewContact() {
         setInput({ ...input, ...{ geburtstag: event.target.value } });
         break;
       }
-      case "geschlecht": {
-        setInput({ ...input, ...{ geschlecht: event.target.value } });
-        break;
-      }
       case "email": {
         setInput({ ...input, ...{ email: event.target.value } });
         break;
@@ -54,12 +50,34 @@ function NewContact() {
     }
   }
 
+  function selectHander(event: React.ChangeEvent<HTMLSelectElement>) {
+    setInput({ ...input, ...{ geschlecht: event.target.value } });
+  }
+
+  function checkIfEmptyInput(): Boolean {
+    if (
+      input.email === "" ||
+      // input.geburtstag === "" ||
+      input.geschlecht === "" ||
+      input.email === "" ||
+      input.strasse === "" ||
+      input.telefon === "" ||
+      input.webseite === ""
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   function saveContact() {
-    context?.dispatch({
-      type: "ADD",
-      payload: input,
-    });
-    navigate("/Contacts");
+    if (checkIfEmptyInput()) {
+      context?.dispatch({
+        type: "ADD",
+        payload: input,
+      });
+      navigate("/Contacts");
+    }
   }
 
   return (
@@ -82,7 +100,15 @@ function NewContact() {
           onChange={clickHandler}
         ></input>
         <h3>Geschlecht</h3>
-        <input type="text"></input>
+        <select
+          value={input.geschlecht}
+          className="input-field"
+          onChange={selectHander}
+        >
+          <option value={""}>Geschlecht auswählen</option>
+          <option value={"männlich"}>männlich</option>
+          <option value={"weiblich"}>weiblich</option>
+        </select>
         <h3>E-Mail Adresse</h3>
         <input
           type="text"

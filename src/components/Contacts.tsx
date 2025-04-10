@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { PersonContext } from "../App";
+import Contact from "./Contact";
 
 function Contacts() {
   const context = useContext(PersonContext);
 
-  return <h3>{context?.contacts.length}</h3>;
+  return <Contact></Contact>;
 }
 
 export default Contacts;

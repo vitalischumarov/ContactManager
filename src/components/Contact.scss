@@ -1,0 +1,35 @@
+.contact-card {
+  background-color: rgb(209 209 209);
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 27rem;
+  justify-content: space-between;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  padding: 0.5rem;
+}
+
+.detail {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.details-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.details-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.delete-btn {
+  display: flex;
+  justify-content: flex-start;
+}
