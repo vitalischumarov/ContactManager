@@ -5,6 +5,7 @@ import "./index.scss";
 import App from "./App.tsx";
 import NewContact from "./components/NewContact.tsx";
 import Contacts from "./components/Contacts.tsx";
+import Edit from "./components/Edit.tsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/newContact", element: <NewContact /> },
       { path: "/Contacts", element: <Contacts /> },
+      { path: "/Edit/:itemID", element: <Edit /> },
     ],
   },
 ]);
