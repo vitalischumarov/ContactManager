@@ -5,8 +5,12 @@ function Menue() {
   return (
     <div className="menue">
       <div className="links">
-        <Link to={"/newContact"}>newContact</Link>
-        <Link to={"/Contacts"}>All Contacts</Link>
+        <Link to={"/newContact"} className="link">
+          newContact
+        </Link>
+        <Link to={"/Contacts"} className="link">
+          All Contacts
+        </Link>
       </div>
     </div>
   );
