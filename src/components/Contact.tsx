@@ -1,4 +1,6 @@
 import { iPerson } from "../Model/Contact";
+import { useContext } from "react";
+import { PersonContext } from "../App";
 import "./Contact.scss";
 
 interface Prop {
@@ -6,6 +8,15 @@ interface Prop {
 }
 
 function Contact({ prop }: Prop) {
+  const context = useContext(PersonContext);
+
+  function deleteContact() {
+    context?.dispatch({
+      type: "DELETE",
+      payload: prop.id,
+    });
+  }
+
   return (
     <div className="contact-card">
       <div className="image">image</div>
@@ -22,7 +33,9 @@ function Contact({ prop }: Prop) {
           <span>{prop.webseite}</span>
         </div>
       </div>
-      <div className="delete-btn">x</div>
+      <div className="delete-btn" onClick={deleteContact}>
+        x
+      </div>
     </div>
   );
 }

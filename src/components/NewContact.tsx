@@ -21,7 +21,6 @@ function NewContact() {
   const navigate = useNavigate();
 
   function clickHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    console.log(event.target.name);
     switch (event.target.name) {
       case "vorname": {
         setInput({ ...input, ...{ vorname: event.target.value } });

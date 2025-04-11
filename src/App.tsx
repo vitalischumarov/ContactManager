@@ -29,7 +29,10 @@ function reducer(personState: PersonState, action: Action) {
       break;
     }
     case "DELETE": {
-      return personState;
+      const updatedpersonState = personState.filter(
+        (contact) => contact.id !== action.payload
+      );
+      return updatedpersonState;
       break;
     }
   }
