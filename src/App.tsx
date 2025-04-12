@@ -25,6 +25,17 @@ function reducer(personState: PersonState, action: Action) {
       break;
     }
     case "EDIT": {
+      for (let i = 0; i < personState.length; i++) {
+        if (personState[i].id === action.payload.id) {
+          personState[i].vorname = action.payload.vorname;
+          personState[i].geburtstag = action.payload.geburtstag;
+          personState[i].geschlecht = action.payload.geschlecht;
+          personState[i].email = action.payload.email;
+          personState[i].strasse = action.payload.strasse;
+          personState[i].telefon = action.payload.telefon;
+          personState[i].webseite = action.payload.webseite;
+        }
+      }
       return personState;
       break;
     }
