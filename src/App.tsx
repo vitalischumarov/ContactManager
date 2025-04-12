@@ -3,6 +3,7 @@ import { useReducer, createContext, Dispatch } from "react";
 import "./App.scss";
 import Menue from "./components/Menue";
 import { iPerson } from "./Model/Contact";
+import { saveToLocalStorage } from "./Model/localStorage";
 
 type contextType = {
   contacts: PersonState;
@@ -21,7 +22,9 @@ type Action =
 function reducer(personState: PersonState, action: Action) {
   switch (action.type) {
     case "ADD": {
-      return [...personState, action.payload];
+      personState = [...personState, action.payload];
+      saveToLocalStorage(personState);
+      return personState;
       break;
     }
     case "EDIT": {

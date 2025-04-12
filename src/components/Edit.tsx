@@ -85,7 +85,6 @@ function Edit() {
   }
 
   function saveContact() {
-    console.log("save");
     if (checkIfEmptyInput()) {
       context?.dispatch({
         type: "EDIT",
