@@ -73,7 +73,7 @@ function NewContact() {
 
   async function saveContact() {
     if (checkIfEmptyInput()) {
-      input.profile_image = await fetchImage();
+      input.profile_image = await fetchImage(input.geschlecht);
       context?.dispatch({
         type: "ADD",
         payload: input,
