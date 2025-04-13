@@ -3,7 +3,10 @@ import { useReducer, createContext, Dispatch } from "react";
 import "./App.scss";
 import Menue from "./components/Menue";
 import { iPerson } from "./Model/Contact";
-import { saveToLocalStorage } from "./Model/localStorage";
+import {
+  loadContactsFromLocalStorage,
+  saveToLocalStorage,
+} from "./Model/localStorage";
 
 type contextType = {
   contacts: PersonState;
@@ -39,6 +42,7 @@ function reducer(personState: PersonState, action: Action) {
           personState[i].webseite = action.payload.webseite;
         }
       }
+      saveToLocalStorage(personState);
       return personState;
       break;
     }
@@ -46,6 +50,7 @@ function reducer(personState: PersonState, action: Action) {
       const updatedpersonState = personState.filter(
         (contact) => contact.id !== action.payload
       );
+      saveToLocalStorage(updatedpersonState);
       return updatedpersonState;
       break;
     }
@@ -55,7 +60,7 @@ function reducer(personState: PersonState, action: Action) {
 function App() {
   const [contacts, dispatch] = useReducer<React.Reducer<PersonState, Action>>(
     reducer,
-    []
+    loadContactsFromLocalStorage()
   );
 
   return (
