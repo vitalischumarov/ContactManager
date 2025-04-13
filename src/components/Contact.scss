@@ -40,7 +40,7 @@
 
 .detail {
   display: flex;
-  // justify-content: space-between;
+  justify-content: flex-end;
   flex-wrap: wrap;
   flex: 1;
   gap: 1rem;
@@ -53,6 +53,7 @@
   font-size: 14px;
   color: black;
   width: 40%;
+  justify-content: flex-end;
 }
 
 .details-left h4 {
@@ -80,4 +81,13 @@
 
 .delete-btn:hover {
   background-color: rgba(255, 0, 0, 0.85);
+}
+
+.icon {
+  height: 15px;
+}
+
+.wrapper {
+  display: flex;
+  padding-top: 1rem;
 }

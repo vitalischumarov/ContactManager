@@ -15,13 +15,13 @@ interface ApiResponse {
 }
 
 export async function fetchImage(geschlecht: string) {
-  let sex: string = "";
+  let gender: string = "";
   if (geschlecht === "männlich") {
-    sex = "male";
+    gender = "male";
   } else {
-    sex = "female";
+    gender = "female";
   }
-  const URL = `https://randomuser.me/api/?gender=${sex}`;
+  const URL = `https://randomuser.me/api/?gender=${gender}`;
   const response = await axios.get<ApiResponse>(URL);
   const userImage = response.data.results[0].picture.large;
   return userImage;

@@ -67,7 +67,13 @@ function NewContact() {
     ) {
       return false;
     } else {
-      return true;
+      if (input.email.includes("@") && input.email.includes(".")) {
+        console.log("passed input check");
+        return true;
+      } else {
+        alert("invalid email");
+        return false;
+      }
     }
   }
 
@@ -113,7 +119,7 @@ function NewContact() {
         </select>
         <h3>E-Mail Adresse</h3>
         <input
-          type="text"
+          type="email"
           className="input-field"
           name="email"
           value={input.email}
@@ -129,7 +135,7 @@ function NewContact() {
         ></input>
         <h3>Telefonnummer</h3>
         <input
-          type="text"
+          type="tel"
           className="input-field"
           name="telefon"
           value={input.telefon}
