@@ -21,7 +21,9 @@ function Contact({ prop }: Prop) {
   return (
     <div className="contact-card">
       <Link to={`/Edit/${prop.id}`} className="link">
-        <div className="image">image</div>
+        <div className="image">
+          <img src={prop.profile_image} alt="image" className="photo"></img>
+        </div>
         <div className="detail">
           <div className="details-left">
             <h4>{prop.vorname}</h4>

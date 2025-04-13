@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./NewContact.scss";
 import { iPerson } from "../Model/Contact";
 import { PersonContext } from "../App";
+import { fetchImage } from "../Model/api";
 
 function NewContact() {
   let newPerson: iPerson = {
@@ -14,6 +15,7 @@ function NewContact() {
     strasse: "",
     telefon: "",
     webseite: "",
+    profile_image: "",
   };
 
   const [input, setInput] = useState(newPerson);
@@ -69,8 +71,9 @@ function NewContact() {
     }
   }
 
-  function saveContact() {
+  async function saveContact() {
     if (checkIfEmptyInput()) {
+      input.profile_image = await fetchImage();
       context?.dispatch({
         type: "ADD",
         payload: input,

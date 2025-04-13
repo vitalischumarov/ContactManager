@@ -7,4 +7,5 @@ export interface iPerson {
   strasse: string;
   telefon: string;
   webseite: string;
+  profile_image: string;
 }
