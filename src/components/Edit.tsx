@@ -35,6 +35,7 @@ function Edit() {
         strasse: "",
         telefon: "",
         webseite: "",
+        profile_image: "",
       };
     }
   }
