@@ -58,6 +58,7 @@ function reducer(personState: PersonState, action: Action) {
 }
 
 function App() {
+  console.log("halloooo");
   const [contacts, dispatch] = useReducer<React.Reducer<PersonState, Action>>(
     reducer,
     loadContactsFromLocalStorage()
