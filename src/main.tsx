@@ -7,19 +7,22 @@ import NewContact from "./components/NewContact.tsx";
 import Contacts from "./components/Contacts.tsx";
 import Edit from "./components/Edit.tsx";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App></App>,
-    errorElement: <h1>Error! Page not found... sorry</h1>,
-    children: [
-      { path: "", element: <Contacts /> },
-      { path: "/newContact", element: <NewContact /> },
-      { path: "/Contacts", element: <Contacts /> },
-      { path: "/Edit/:itemID", element: <Edit /> },
-    ],
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App></App>,
+      errorElement: <h1>Error! Page not found... sorry</h1>,
+      children: [
+        { path: "", element: <Contacts /> },
+        { path: "/newContact", element: <NewContact /> },
+        { path: "/Contacts", element: <Contacts /> },
+        { path: "/Edit/:itemID", element: <Edit /> },
+      ],
+    },
+  ],
+  { basename: "/ContactManager" }
+);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
