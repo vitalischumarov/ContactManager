@@ -6,7 +6,7 @@ function Menue() {
     <div className="menue">
       <div className="links">
         <Link to={"/newContact"} className="link">
-          newContact
+          New Contact
         </Link>
         <Link to={"/Contacts"} className="link">
           All Contacts
