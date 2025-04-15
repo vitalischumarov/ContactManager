@@ -91,7 +91,7 @@ function Edit() {
         type: "EDIT",
         payload: person,
       });
-      navigate("/Contacts");
+      navigate("/");
     }
   }
 

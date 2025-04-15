@@ -8,7 +8,7 @@ function Menue() {
         <Link to={"/newContact"} className="link">
           New Contact
         </Link>
-        <Link to={"/Contacts"} className="link">
+        <Link to={"/"} className="link">
           All Contacts
         </Link>
       </div>

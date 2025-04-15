@@ -84,7 +84,7 @@ function NewContact() {
         type: "ADD",
         payload: input,
       });
-      navigate("/Contacts");
+      navigate("/");
     }
   }
 
